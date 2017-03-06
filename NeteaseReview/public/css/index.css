@@ -1,0 +1,105 @@
+*{ margin: 0; padding: 0;}
+.wrap{
+    width: 950px;
+    margin: 10px auto;
+    border: 1px solid #c4d6ec;
+    background-color: #f8fcff;
+}
+.top{
+    padding: 16px 26px;
+    max-height: 320px;
+    text-align: center;
+    border: 1px solid #c4d6ec;
+}
+.topFunction{
+    padding-bottom:10px;
+}
+.topFunction .gotoOther{
+    background-color: #efefef;
+    color: #000000;
+}
+.topTextBot{
+    line-height: 62px;
+}
+.topTextBot input{
+    height: 35px;
+    line-height: 35px;
+    padding: 0 5px;
+    margin: 0 9px;
+    vertical-align: middle;
+}
+textarea {
+    resize: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #c4d6ec;
+}
+.topText{
+    border: 1px solid #c4d6ec;
+    padding: 0 3px;
+    margin-bottom: 10px;
+}
+.mainTop{
+    height: 50px;
+    line-height: 50px;
+    background-color: #e5eef8;
+}
+.mainTop h2{
+    margin: 0;
+    padding: 0 10px 0 26px;
+    line-height: 50px;
+}
+.mainTop span{color: red}
+.mainTop .pull-right{padding-right: 23px;}
+.mainText{
+    background: #f8fcff;
+    padding:0px 24px 10px ;
+}
+.mainMix{
+
+    padding: 7px 0px 10px;
+    border-bottom: 1px dotted #afafb0;
+   /* background: deeppink;*/
+    width: 100%;
+    position: relative;
+}
+.mainMix .mixL{
+    width: 54px;
+    /*height: 200px;background: red;*/
+    position: absolute;
+    left: 0;
+    top: 23px;
+}
+.mainMix .mixR{
+    float: right;
+    width:830px;
+    /*height: 200px;background: greenyellow;*/
+}
+.mixL a{
+display: block;
+width: 54px;
+height: 54px;
+border-radius: 50%;
+overflow: hidden;
+margin-bottom: 5px;
+}
+.mixL a img{ width: 100%;min-height:100%;}
+.mixRtop{
+    height: 54px;
+    line-height: 54px;
+}
+.mixRtop span{ margin-left: 10px; color: #666666;}
+.mixR p{
+    text-align: left;
+    margin: 0;}
+.mixRbot{
+    height: 50px;
+    line-height: 50px;
+    text-align: right;
+    margin: 0;
+}
+.mixRbot li{
+    display: inline-block;
+    margin-left:20px;
+}
+.mixRbot span{ color: red; }

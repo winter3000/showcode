@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title>网易跟帖</title>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-controller="commentCtrl">
+<div class="wrap">
+    <div class="top clearfix">
+        <div class="topFunction clearfix">
+                <div class="pull-left" >
+                    <a href="#" class="btn btn-primary" ng-click="showTopText()">快速发帖</a>
+                    <a href="#" class="btn gotoOther">去跟贴广场看看</a>
+                </div>
+                <!--分页导航按钮 -->
+                <div class="pull-right btn-group">
+                    <a class="btn btn-default" ng-class="number==pageNum?'btn-primary':''"
+                       ng-click="selectPage(number)"
+                       ng-repeat="number in data | navButtonFilter:pageSize">
+                        {{number}}
+                    </a>
+                </div>
+        </div>
+        <div class="topText" ng-show="showCom">
+            <form action="post" name="reportComment" novalidate>
+                <textarea name="comment" cols="80" rows="8" placeholder="抵制低俗，文明上网，登录发帖"
+                          ng-model="newCom.comment" required></textarea>
+                <div class="topTextBot clearfix">
+                    <div class="pull-left">
+                        <input type="text" placeholder="用户名或邮箱" ng-model="newCom.name" required>
+                        <input type="password" placeholder="密码" ng-model="newCom.passWord" required>
+                    </div>
+                    <div class="pull-right">
+                        <label><input type="checkbox" name="automaticLogon">自动登录</label>
+                        <a href="#" class="btn btn-primary" ng-click="addComment()" ng-disabled="reportComment.$invalid">登录并发表</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="main">
+        <div class="mainTop">
+            <h2 class="pull-left panel-group">热门跟贴</h2>
+            <p class="pull-left panel-group">(跟贴<span>6888</span>条  有<span>169546</span>人参与)</p>
+            <p class="pull-right"><a href="#">跟贴用户自律公约</a> | <a href="#">手机也能看跟贴</a>>> </p>
+        </div>
+        <div class="mainText">
+            <div class="mainMix clearfix" ng-repeat="user in data| orderBy:'-time' | pageFilter:pageNum:pageSize">
+                <div class="mixL" ng-mouseenter="show = true" ng-mouseleave="show = false" >
+                    <a href="#" class="headimg" ><img ng-src="{{user.headimg}}" alt=""></a>
+                    <div class="btn btn-primary" ng-show="show">关注</div>
+                </div>
+                <div class="mixR clearfix">
+                    <div class="mixRtop">
+                        <p class="pull-left"><a href="#">{{user.name}}</a><span>{{user.district}}</span></p>
+                        <span class="pull-right">{{user.time*1000 | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+                    </div>
+                    <p>{{user.comment}}</p>
+                    <ul class="mixRbot list-unstyled">
+                        <li ng-click="agreeAdd(user)"><a href="#">顶<span>[{{user.agreeNum}}]</span></a></li>
+                        <li><a href="#">回复</a></li>
+                        <li><a href="#">收藏</a></li>
+                        <li><a href="#">分享</a></li>
+                        <li><a href="#">复制</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
